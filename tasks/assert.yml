@@ -39,28 +39,15 @@
   when:
     - pxeserver_config_images is defined
 
-- name: assert | Test if pxeserver_config_images elements are set correctly
+- name: assert | Test if pxeserver_config_images > label is set correctly
+  ansible.builtin.assert:
+    that:
+      - item.label is defined
+      - item.label is string
+      - item.label is not none
+    quiet: yes
+  loop: "{{ pxeserver_config_images }}"
+  loop_control:
+    label: "{{ item.label }}"
   when:
     - pxeserver_config_images is defined
-  block:
-    - name: assert | Test if pxeserver_config_images > label is set correctly
-      ansible.builtin.assert:
-        that:
-          - item.label is defined
-          - item.label is string
-          - item.label is not none
-        quiet: yes
-      loop: "{{ pxeserver_config_images }}"
-      loop_control:
-        label: "{{ item.label }}"
-
-    # - name: assert | Test if pxeserver_config_images > default is set correctly
-    #   ansible.builtin.assert:
-    #     that:
-    #       - item.default is boolean
-    #     quiet: yes
-    #   loop: "{{ pxeserver_config_images }}"
-    #   loop_control:
-    #     label: "{{ item.default }}"
-    #   when:
-    #     - item.default is defined
