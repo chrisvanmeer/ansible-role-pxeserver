@@ -12,7 +12,7 @@ Defaults can be found in the `defaults/main.yml` file.
   become: true
 
   roles:
-    - name: chrisvanmeer.pxeserver
+    - role: chrisvanmeer.pxeserver
       vars:
         pxeserver_images:
           - label: RedHat 8.7
