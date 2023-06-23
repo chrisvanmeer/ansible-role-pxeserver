@@ -23,7 +23,7 @@ Defaults can be found in the `defaults/main.yml` file.
               stage2: http://reposerver/deploy/repos/redhat/8/os/x86_64
               quiet: true
               ifnames: 0
-              biosdevnames: 0
+              biosdevname: 0
               kickstart: http://reposerver/deploy/kickstart/redhat_8_7.cfg
           - label: Debian 11
             kernel:
@@ -33,7 +33,7 @@ Defaults can be found in the `defaults/main.yml` file.
               stage2: http://reposerver/deploy/repos/debian/11/os/x86_64
               quiet: true
               ifnames: 0
-              biosdevnames: 0
+              biosdevname: 0
               kickstart: http://reposerver/deploy/kickstart/debian_11.cfg
           - label: DBAN
             kernel:
