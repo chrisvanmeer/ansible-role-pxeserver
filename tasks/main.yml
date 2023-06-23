@@ -17,7 +17,7 @@
 
 - name: Ensure tftpboot directory
   ansible.builtin.file:
-    dest: /var/lib/tftpboot/pxelinux.cfg/
+    dest: "{{ pxeserver_tftproot_location }}/"
     state: directory
     owner: root
     group: root
@@ -26,7 +26,7 @@
 - name: Ensure tftpboot configuration
   ansible.builtin.template:
     src: default.j2
-    dest: /var/lib/tftpboot/pxelinux.cfg/default
+    dest: "{{ pxeserver_tftproot_location }}/default"
     owner: root
     group: root
     mode: 0644
