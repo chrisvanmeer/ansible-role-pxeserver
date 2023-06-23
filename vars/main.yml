@@ -1,0 +1,16 @@
+---
+_pxeserver_tftp_package:
+  default: tftp-server
+  Debian: tftpd-hpa
+
+_pxeserver_syslinux_package:
+  default: syslinux-tftpboot
+  Debian: syslinux-common
+
+_pxeserver_tftp_service:
+  default: tftp.socket
+  Debian: tftpd-hpa.service
+
+pxeserver_tftp_package: "{{ _pxeserver_tftp_package[ansible_os_family] | default(_pxeserver_tftp_package['default']) }}"
+pxeserver_syslinux_package: "{{ _pxeserver_syslinux_package[ansible_os_family] | default(_pxeserver_syslinux_package['default']) }}"
+pxeserver_tftp_service: "{{ _pxeserver_tftp_service[ansible_os_family] | default(_pxeserver_tftp_service['default']) }}"

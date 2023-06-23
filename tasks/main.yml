@@ -6,17 +6,17 @@
 
 - name: Ensure tftp server
   ansible.builtin.package:
-    name: tftp-server
+    name: "{{ pxeserver_tftp_package }}"
     state: present
 
 - name: Ensure syslinux
   ansible.builtin.package:
-    name: syslinux-tftpboot
+    name: "{{ pxeserver_syslinux_package }}"
     state: present
 
 - name: Ensure tftp.socket
   ansible.builtin.service:
-    name: tftp.socket
+    name: "{{ pxeserver_tftp_service }}"
     state: started
     enabled: yes
 
