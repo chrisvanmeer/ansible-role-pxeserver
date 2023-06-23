@@ -1,19 +1,24 @@
 ---
+- name: Import assert.yml
+  ansible.builtin.import_tasks: assert.yml
+  run_once: yes
+  delegate_to: localhost
+
 - name: Ensure tftp server
   ansible.builtin.package:
     name: tftp-server
     state: present
 
-- name: Ensure syslinux server
+- name: Ensure syslinux
   ansible.builtin.package:
     name: syslinux-tftpboot
     state: present
 
-- name: Ensure tftp socket
+- name: Ensure tftp.socket
   ansible.builtin.service:
     name: tftp.socket
     state: started
-    enabled: true
+    enabled: yes
 
 - name: Ensure tftpboot directory
   ansible.builtin.file:

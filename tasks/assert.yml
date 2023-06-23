@@ -1,0 +1,287 @@
+---
+- name: assert | Test if pxeserver_tftproot_location is set correctly
+  ansible.builtin.assert:
+    that:
+      - pxeserver_tftproot_location is defined
+      - pxeserver_tftproot_location is string
+    quiet: yes
+
+- name: assert | Test if pxeserver_config_default is set correctly
+  ansible.builtin.assert:
+    that:
+      - pxeserver_config_default is defined
+      - pxeserver_config_default is number
+      - pxeserver_config_default > 0
+    quiet: yes
+
+- name: assert | Test if pxeserver_config_timeout is set correctly
+  ansible.builtin.assert:
+    that:
+      - pxeserver_config_timeout is defined
+      - pxeserver_config_timeout is number
+      - pxeserver_config_timeout > 0
+    quiet: yes
+
+- name: assert | Test if pxeserver_config_menu_title is set correctly
+  ansible.builtin.assert:
+    that:
+      - pxeserver_config_menu_title is defined
+      - pxeserver_config_menu_title is string
+    quiet: yes
+
+- name: assert | Test if pxeserver_config_images is set correctly
+  ansible.builtin.assert:
+    that:
+      - pxeserver_config_images is iterable
+    quiet: yes
+  when:
+    - pxeserver_config_images is defined
+
+- name: assert | Test if pxeserver_config_images.default is set correctly
+  ansible.builtin.assert:
+    that:
+      - pxeserver_config_images.default is boolean
+    quiet: yes
+  when:
+    - pxeserver_config_images.default is defined
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined
+
+# - name: assert | Test if xx is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - item.yy
+#     quiet: yes
+#   loop: "{{ xx }}"
+#   loop_control:
+#     label: "{{ item.yy }}"
+#   when:
+#     - xx is defined

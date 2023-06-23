@@ -1,7 +1,7 @@
 ---
 pxeserver_tftproot_location: /var/lib/tftpboot/pxelinux.cfg/
 
-pxeserver_default: vesamenu.c32
-pxeserver_timeout: 100
-pxserver_menu_title: PXE Boot Menu
-pxeserver_images: []
+pxeserver_config_default: vesamenu.c32
+pxeserver_config_timeout: 100
+pxeserver_config_menu_title: PXE Boot Menu
+pxeserver_config_images: []

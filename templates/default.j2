@@ -1,20 +1,20 @@
-default {{ pxeserver_default }}
-timeout {{ pxeserver_timeout }}
+default {{ pxeserver_config_default }}
+timeout {{ pxeserver_config_timeout }}
 
 menu clear
-menu title ######## {{ pxserver_menu_title }} ########
+menu title ######## {{ pxeserver_config_menu_title }} ########
 
-{% for image in pxeserver_images %}
+{% for image in pxeserver_config_images %}
 label {{ loop.index }}
 {% if image.default is defined and image.default == true %}
   menu default
 {% endif %}
   menu label ^{{ loop.index }}. {{ image.label }}
 {% if image.kernel is defined %}
-  kernel {{ image.kernel.file }}
+  kernel {{ image.kernel }}
 {% endif %}
 {% if image.append is defined %}
-  append{% if image.append.config is defined %} {{ image.append.config }}{% endif %}{% if image.append.iso is defined %} iso initrd={{ image.append.iso }}{% endif %}{% if image.append.stage2 is defined %} inst.stage2={{ image.append.stage2 }}{% endif %}{% if image.append.quiet is defined %} quiet{% endif %}{% if image.append.ifnames is defined %} net.ifnames={{ image.append.ifnames }}{% endif %}{% if image.append.biosdevname is defined %} biosdevname={{ image.append.biosdevname }}{% endif %}{% if image.append.kickstart is defined %} ks={{ image.append.kickstart }}{% endif %}
+  append{% if image.append.config is defined %} {{ image.append.config }}{% endif %}{% if image.append.initrd is defined %} initrd={{ image.append.initrd }}{% endif %}{% if image.append.iso is defined and image.append.iso == true %} iso{% endif%}{% if image.append.raw is defined and image.append.raw == true %} raw{% endif%}{% if image.append.dodhcp is defined and image.append.dodhcp == true %} dodhcp{% endif%}{% if image.append.boot is defined %} boot={{ image.append.boot }}{% endif%}{% if image.append.fetch is defined %} fetch={{ image.append.fetch }}{% endif%}{% if image.append.netboot is defined %} netboot={{ image.append.netboot }}{% endif%}{% if image.append.live_media is defined %} live-media={{ image.append.live_media }}{% endif%}{% if image.append.live_media_path is defined %} live-media-path={{ image.append.live_media_path }}{% endif%}{% if image.append.setkmap is defined %} setkmap={{ image.append.setkmap }}{% endif%}{% if image.append.stage2 is defined %} inst.stage2={{ image.append.stage2 }}{% endif %}{% if image.append.quiet is defined and image.append.quiet == true %} quiet{% endif %}{% if image.append.ifnames is defined %} net.ifnames={{ image.append.ifnames }}{% endif %}{% if image.append.biosdevname is defined %} biosdevname={{ image.append.biosdevname }}{% endif %}{% if image.append.kickstart is defined %} ks={{ image.append.kickstart }}{% endif %}
 {% endif %}
 {% if image.localboot is defined and image.localboot == true %}
   localboot 0xffff
