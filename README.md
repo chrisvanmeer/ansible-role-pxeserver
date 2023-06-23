@@ -14,7 +14,7 @@ Defaults can be found in the `defaults/main.yml` file.
   roles:
     - role: chrisvanmeer.pxeserver
       vars:
-        pxeserver_images:
+        pxeserver_config_images:
           - label: RedHat 8.7
             kernel: redhat8/vmlinuz.dev
             append:
