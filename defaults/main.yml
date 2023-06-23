@@ -1,0 +1,5 @@
+---
+pxeserver_default: vesamenu.c32
+pxeserver_timeout: 100
+pxserver_menu_title: PXE Boot Menu
+pxeserver_images: []

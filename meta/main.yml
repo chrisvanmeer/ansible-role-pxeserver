@@ -1,0 +1,31 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: pxeserver
+  namespace: chrisvanmeer
+  author: Chris van Meer"
+  description: Role for setting up a PXE boot server
+  company: AT Computing
+  license: BSD
+  min_ansible_version: 2.10
+  platforms:
+    - name: EL
+      versions:
+        - 7
+        - 8
+        - 9
+    - name: Fedora
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - system
+    - networking
+    - deployment
+    - pxe

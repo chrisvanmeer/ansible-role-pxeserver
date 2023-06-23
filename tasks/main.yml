@@ -1,0 +1,32 @@
+---
+- name: Ensure tftp server
+  ansible.builtin.package:
+    name: tftp-server
+    state: present
+
+- name: Ensure syslinux server
+  ansible.builtin.package:
+    name: syslinux-tftpboot
+    state: present
+
+- name: Ensure tftp socket
+  ansible.builtin.service:
+    name: tftp.socket
+    state: started
+    enabled: true
+
+- name: Ensure tftpboot directory
+  ansible.builtin.file:
+    dest: /var/lib/tftpboot/pxelinux.cfg/
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Ensure tftpboot configuration
+  ansible.builtin.template:
+    src: default.j2
+    dest: /var/lib/tftpboot/pxelinux.cfg/default
+    owner: root
+    group: root
+    mode: 0644

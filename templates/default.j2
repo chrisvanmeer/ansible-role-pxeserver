@@ -1,0 +1,23 @@
+default {{ pxeserver_default }}
+timeout {{ pxeserver_timeout }}
+
+menu clear
+menu title ######## {{ pxserver_menu_title }} ########
+
+{% for image in pxeserver_images %}
+label {{ loop.index }}
+{% if image.default is defined and image.default == true %}
+  menu default
+{% endif %}
+  menu label ^{{ loop.index }}. {{ image.label }}
+{% if image.kernel is defined %}
+  kernel {{ image.kernel.file }}
+{% endif %}
+{% if image.append is defined %}
+  append{% if image.append.config is defined %} {{ image.append.config }}{% endif %}{% if image.append.iso is defined %} iso initrd={{ image.append.iso }}{% endif %}{% if image.append.stage2 is defined %} inst.stage2={{ image.append.stage2 }}{% endif %}{% if image.append.quiet is defined %} quiet{% endif %}{% if image.append.ifnames is defined %} net.ifnames={{ image.append.ifnames }}{% endif %}{% if image.append.biosdevname is defined %} biosdevname={{ image.append.biosdevname }}{% endif %}{% if image.append.kickstart is defined %} ks={{ image.append.kickstart }}{% endif %}
+{% endif %}
+{% if image.localboot is defined and image.localboot == true %}
+  localboot 0xffff
+{% endif %}
+
+{% endfor %}
