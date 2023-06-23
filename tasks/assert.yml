@@ -10,8 +10,7 @@
   ansible.builtin.assert:
     that:
       - pxeserver_config_default is defined
-      - pxeserver_config_default is number
-      - pxeserver_config_default > 0
+      - pxeserver_config_default is string
     quiet: yes
 
 - name: assert | Test if pxeserver_config_timeout is set correctly
