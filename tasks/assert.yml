@@ -4,6 +4,7 @@
     that:
       - pxeserver_tftproot_location is defined
       - pxeserver_tftproot_location is string
+      - pxeserver_config_menu_title is not none
     quiet: yes
 
 - name: assert | Test if pxeserver_config_default is set correctly
@@ -11,6 +12,7 @@
     that:
       - pxeserver_config_default is defined
       - pxeserver_config_default is string
+      - pxeserver_config_menu_title is not none
     quiet: yes
 
 - name: assert | Test if pxeserver_config_timeout is set correctly
@@ -26,6 +28,7 @@
     that:
       - pxeserver_config_menu_title is defined
       - pxeserver_config_menu_title is string
+      - pxeserver_config_menu_title is not none
     quiet: yes
 
 - name: assert | Test if pxeserver_config_images is set correctly
@@ -39,10 +42,14 @@
 - name: assert | Test if pxeserver_config_images.default is set correctly
   ansible.builtin.assert:
     that:
-      - pxeserver_config_images.default is boolean
+      - item.default is boolean
     quiet: yes
+  loop: "{{ pxeserver_config_images }}"
+  loop_control:
+    label: "{{ item.default }}"
   when:
-    - pxeserver_config_images.default is defined
+    - pxeserver_config_images is defined
+    - item.default is defined
 # - name: assert | Test if xx is set correctly
 #   ansible.builtin.assert:
 #     that:
